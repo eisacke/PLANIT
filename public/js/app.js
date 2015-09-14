@@ -15,11 +15,11 @@ angular
     $stateProvider
       .state('signup', {
         url: "/signup",
-        templateUrl: "js/views/signup.html"
+        templateUrl: "js/views/auth/signup.html"
       })
       .state('signin', {
         url: "/signin",
-        templateUrl: "js/views/signin.html"
+        templateUrl: "js/views/auth/signin.html"
       })
       .state('newEvent', {
         url: "/events/new",
@@ -35,7 +35,7 @@ angular
       })
       .state('home', {
         url: "/",
-        templateUrl: "js/views/homepage.html"
+        templateUrl: "js/views/homepage/homepage.html"
       });
 
     $urlRouterProvider.otherwise("/");
