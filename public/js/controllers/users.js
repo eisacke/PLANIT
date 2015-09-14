@@ -26,7 +26,7 @@ function UsersController(User, TokenService){
     User.signup(self.user, showMessage);
   }
 
-  self.disappear = function() {
+  self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
   }
 

@@ -1,13 +1,10 @@
 angular
   .module('EventPlan', ['ngResource', 'ui.router', 'angular-jwt'])
-  .config(MainRouter);
-
-  angular
-  .module('EventPlan')
-  .run(function($http, $window){
-    var token = $window.localStorage.getItem('token');
-    $http.defaults.headers.common["Authorization"] = "Bearer " + token;
+  .constant('API', 'http://localhost:3000/api')
+  .config(function($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
   })
+  .config(MainRouter);
 
   // Setup the routing with ui.router
   function MainRouter($stateProvider, $urlRouterProvider){

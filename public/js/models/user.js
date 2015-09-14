@@ -10,7 +10,7 @@ function User($resource) {
  var UserResource = $resource(
   url + '/users/:id',
   {id: '@_id'},
-  { 'get':       { method: 'GET' },
+  { 'get':     { method: 'GET' },
   'save':      { method: 'POST' },
   'query':     { method: 'GET', isArray: true},
   'remove':    { method: 'DELETE' },
