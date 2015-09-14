@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+var passport = require('passport');
+require('./config/passport')(passport);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
