@@ -16,5 +16,5 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 
 app.use(logger('dev'));
-// app.user(require('./controllers'));
+app.use(require('./controllers'));
 app.listen(process.env.PORT || 3000);
