@@ -5,6 +5,7 @@ angular
 UsersController.$inject = ['User', 'TokenService'];
 function UsersController(User, TokenService){
   var self = this;
+
   self.all = [];
   self.users = {};
 
@@ -18,11 +19,11 @@ function UsersController(User, TokenService){
   }
 
   self.authorize = function() {
-    User.authorize(self.user, showMessage);
+    User.signin(self.user, showMessage);
   }
 
   self.join = function() {
-    User.join(self.user, showMessage);
+    User.signup(self.user, showMessage);
   }
 
   self.disappear = function() {
