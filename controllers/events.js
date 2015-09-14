@@ -10,8 +10,8 @@ router.get('/', function(req, res){
   Event.find()
   .populate('locations')
   .exec(function(error, events){
-    if(error)return res.status(404).json({message: 'Could not find any events'})
-      return res.status(200).send(events);
+    if(error)return res.status(404).json({message: 'Could not find any events'});
+    return res.status(200).send(events);
   });
 });
 
@@ -21,8 +21,8 @@ router.get('/:id', function(req,res){
   Event.findById({_id: id})
   .populate('locations')
   .exec(function(error, event){
-    if(error) return res.status(404).send({message: 'Could not find event'})
-      return res.status(200).send(event);
+    if(error) return res.status(404).send({message: 'Could not find event'});
+    return res.status(200).send(event);
   });
 });
 
@@ -35,14 +35,6 @@ router.post('/', function(req, res){
   });
 });
 
-// router.post('/join', function(req, res){
-//   var id = req.body.user_id
-//   Hunt.findByIdAndUpdate({_id: req.body.hunt_id}, {$push: {"participants": req.body.user_id}}, function(error){
-//     if(error) return res.status(403).send({message: 'Could not add participant b/c' + error});
-//     return res.status(200).send({message: 'Added participant.'});
-//   });
-// })
-
 // DELETE
 router.delete('/:id', function(req, res){
   var id = req.params.id;
@@ -51,8 +43,8 @@ router.delete('/:id', function(req, res){
       Location.remove({_id: event.locations[i]}, function(){});
     }
     Event.remove({_id: id}, function(error){
-      if (error) res.status(404).send({message: 'No event with that ID. Could not delete.'})
-        return res.status(204).send({message: 'Deleted!'})
+      if (error) res.status(404).send({message: 'No event with that ID. Could not delete.'});
+      return res.status(204).send({message: 'Deleted!'})
     });
   });
 });
