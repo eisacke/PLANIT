@@ -1,0 +1,13 @@
+<div ng-controller="EventsController as events">
+  <h1>All Events</h1>
+
+  <ul>
+    <li ng-repeat="event in events.all" >
+      <ul>
+        <li><h3>{{event.title}}</h3></li>
+        <li><p>{{event.description}}</p></li>
+        <li><a href="#/events/{{event._id}}">Show</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

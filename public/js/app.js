@@ -25,6 +25,14 @@ angular
         url: "/events/new",
         templateUrl: "js/views/events/new.html"
       })
+      .state('indexEvents', {
+        url: "/events",
+        templateUrl: "js/views/events/index.html"
+      })
+      .state('showEvent', {
+        url: "/events/:id",
+        templateUrl: "js/views/events/show.html"
+      })
       .state('home', {
         url: "/",
         templateUrl: "js/views/homepage.html"

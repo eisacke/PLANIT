@@ -1,0 +1,11 @@
+<h1>SHOW</h1>
+<div ng-controller="EventsController as events">
+<h2>{{events.event.title}}</h2>
+<h3>{{events.event.description}}</h3>
+<button class='delete' ng-click="events.deleteEvent(events.event)">X</button>
+<!-- <ul>
+  <li ng-repeat="task in events.event.tasks">
+  <a href="#/events/{{events.event._id}}/tasks/{{task._id}}"><span>{{task.title}}</span></a>
+  </li>
+</ul> -->
+</div>

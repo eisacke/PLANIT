@@ -5,20 +5,19 @@ angular
 EventsController.$inject = ['Event', '$state', '$stateParams']
 function EventsController (Event, $state, $stateParams) {
 
-  console.log($stateParams)
-
   var self = this;
   self.event;
   self.newEvent = {};
 
-  // if ($stateParams.id) {
-  //   Hunt.get({ id: $stateParams.id}, function(hunt){
-  //     self.hunt = hunt;
-  //   })
-  // }
-
   // INDEX
   self.all = Event.query();
+
+  // FIND EVENT BY PARAMS ID
+  if ($stateParams.id) {
+    Event.get({ id: $stateParams.id}, function(event){
+      self.event = event;
+    });
+  }
 
   // SHOW
   self.showEvent = function(event) {
@@ -33,10 +32,11 @@ function EventsController (Event, $state, $stateParams) {
   }
 
   // DELETE
-  self.deleteEvent = function(event) {
-    Event.delete(event._id, function(response) {
-      console.log(response)
-    });
-  }
+  self.deleteEvent = function(event){
+    Event.delete({id: event._id});
+    var index = self.all.indexOf(event);
+    self.all.splice(index, 1);
+    $state.go('indexEvents');
+  };
 
 }
