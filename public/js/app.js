@@ -21,6 +21,10 @@ angular
         url: "/signin",
         templateUrl: "js/views/signin.html"
       })
+      .state('newEvent', {
+        url: "/events/new",
+        templateUrl: "js/views/events/new.html"
+      })
       .state('home', {
         url: "/",
         templateUrl: "js/views/homepage.html"

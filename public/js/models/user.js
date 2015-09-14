@@ -1,6 +1,6 @@
 angular
-.module('EventPlan')
-.factory('User', User);
+  .module('EventPlan')
+  .factory('User', User);
 
 User.$inject = ['$resource'];
 
@@ -22,7 +22,7 @@ function User($resource) {
   'signup': {
     url: url + '/auth/signup',
     method: 'POST'
-  }
-});
+    }
+  });
  return UserResource;
 }
