@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Event Planner</title>
-  <link rel="stylesheet" href="./css/reset.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body ng-controller="UsersController as users">
@@ -11,7 +12,7 @@
   <div ng-include="'js/views/shared/header.html'"></div>
   <div ui-view></div>
   <div ng-include="'js/views/shared/footer.html'"></div>
-
+  
   <!-- External  -->
   <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Angular  -->
@@ -19,6 +20,8 @@
   <script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="../bower_components/angular-jwt/dist/angular-jwt.js"></script>
   <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- Internal -->
   <script type="text/javascript" src="./js/app.js"></script>
   <!-- Controllers-->
