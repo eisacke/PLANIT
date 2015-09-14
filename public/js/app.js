@@ -16,9 +16,9 @@ angular
         url: "/signup",
         templateUrl: "js/views/signup.html"
       })
-      .state('login', {
-        url: "/login",
-        templateUrl: "js/views/login.html"
+      .state('signin', {
+        url: "/signin",
+        templateUrl: "js/views/signin.html"
       })
       .state('home', {
         url: "/",
