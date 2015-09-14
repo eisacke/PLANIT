@@ -33,7 +33,7 @@ router.post('/', function(req, res){
 router.delete('/:id', function(req, res){
   var id = req.params.id;
   User.remove({_id: id}, function(error) {
-    if (error) res.status(404).send({message: 'You seem to be mistaken, we have no user with that identity.'});
+    if (error) res.status(404).send({message: 'No user with that ID. Could not delete.'});
     return res.status(204).send({message: 'Deleted!'});
   });
 });

@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.use('/api/users', require('./users'));
 router.use('/api/events', require('./events'));
-// router.use('/api/location', require('./locations'));
+router.use('/api/locations', require('./locations'));
 
 router.get('/', function(req, res) {
   res.render("index.html");
