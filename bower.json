@@ -1,0 +1,22 @@
+{
+  "name": "event-plan",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eisacke/final-project",
+  "authors": [
+    "eisacke <emily@isacke.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-auto-validate": "~1.18.16",
+    "angular-jwt": "~0.0.9",
+    "angular-resource": "~1.4.5",
+    "angular-ui-router": "~0.2.15"
+  }
+}
