@@ -1,1 +1,10 @@
-<p>HEADER!</p>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li ng-hide="users.isLoggedIn()"><a href="#signin">Sign In</a></li>
+      <li ng-hide="users.isLoggedIn()"><a href="#signup">Sign Up</a></li>
+      <li ng-show="users.isLoggedIn()" ng-click="users.logout()"><a>Logout</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,10 +1,14 @@
 angular
   .module('EventPlan', ['ngResource', 'ui.router', 'angular-jwt'])
   .constant('API', 'http://localhost:3000/api')
+  .config(MainRouter)
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-  })
-  .config(MainRouter);
+  });
+
+  function AuthInterceptor($httpProvider){
+    $httpProvider.interceptors.push('authInterceptor');
+  }
 
   // Setup the routing with ui.router
   function MainRouter($stateProvider, $urlRouterProvider){

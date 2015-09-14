@@ -1,1 +1,10 @@
-<h1>Sign In!</h1>
+<section ng-hide="users.isLoggedIn()">
+  <h3>Sign In</h3>
+  <form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
+  <label for="email">Email</label>
+    <input type="text" name="email" placeholder="What is your email?" ng-model="users.user.email">
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="What is your password?" ng-model="users.user.password">
+    <input type="submit" value="Sign In">
+  </form>
+</section>
