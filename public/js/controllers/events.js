@@ -2,12 +2,17 @@ angular
   .module('EventPlan')
   .controller('EventsController', EventsController)
 
-EventsController.$inject = ['Event', '$state', '$stateParams']
-function EventsController (Event, $state, $stateParams) {
+EventsController.$inject = ['Event', '$state', '$stateParams', 'TokenService', '$window']
+function EventsController (Event, $state, $stateParams, TokenService, $window) {
 
   var self = this;
   self.event = {};
   self.newEvent = {};
+
+  // GET CURRENT USER INFO
+  if ($window.localStorage['secret-handshake']) {
+    self.creator = TokenService.parseJwt();
+  }
 
   // INDEX
   self.all = Event.query();
@@ -26,6 +31,7 @@ function EventsController (Event, $state, $stateParams) {
 
   // CREATE
   self.createEvent = function() {
+    self.newEvent.creator = self.creator._id;
     Event.save(self.newEvent, function(response) {
       self.showEvent(response);
     });

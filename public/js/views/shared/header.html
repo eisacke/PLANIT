@@ -19,6 +19,7 @@
         <li ng-hide="users.isLoggedIn()"><a href="#signup">Sign Up</a></li>
         <li><a href="#events/new">Create Event</a></li>
         <li><a href="#events">All Events</a></li>
+        <li ng-show="users.isLoggedIn()"><a href="#">{{users.user.email}}</a></li>
         <li ng-show="users.isLoggedIn()" ng-click="users.logout()"><a href="#home">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

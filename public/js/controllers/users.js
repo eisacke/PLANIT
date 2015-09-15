@@ -5,7 +5,6 @@ angular
 UsersController.$inject = ['User', 'TokenService'];
 function UsersController(User, TokenService){
   var self = this;
-
   self.all = [];
   self.users = {};
 
