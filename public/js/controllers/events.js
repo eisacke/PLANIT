@@ -6,7 +6,7 @@ EventsController.$inject = ['Event', '$state', '$stateParams']
 function EventsController (Event, $state, $stateParams) {
 
   var self = this;
-  self.event;
+  self.event = {};
   self.newEvent = {};
 
   // INDEX

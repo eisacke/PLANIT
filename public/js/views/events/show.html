@@ -1,11 +1,24 @@
 <div class="container-fluid" ng-controller="EventsController as events">
-<h2>{{events.event.title}}</h2>
-<h3>{{events.event.description}}</h3>
-<button ng-click="events.deleteEvent(events.event)">Add Location</button>
-<button ng-click="events.deleteEvent(events.event)">Delete</button>
+  <h2>{{events.event.title}}</h2>
+  <h3>{{events.event.description}}</h3>
+  <button ng-click="events.deleteEvent(events.event)">Add Location</button>
+  <button ng-click="events.deleteEvent(events.event)">Delete</button>
 <!-- <ul>
   <li ng-repeat="task in events.event.tasks">
   <a href="#/events/{{events.event._id}}/tasks/{{task._id}}"><span>{{task.title}}</span></a>
   </li>
 </ul> -->
+<h2>Add a location</h2>
+<div ng-controller="LocationsController as locations">
+  <form ng-submit="locations.addLocation()">
+    <label for="name">Name:</label>
+    <input type="text" name="name" ng-model="locations.location.location.title">
+    <label for="description">Time:</label>
+    <input type="text" name="time" ng-model="locations.location.location.time">
+    <button type="submit">Add Location</button>
+  </form>
+</div>
+
+
+
 </div>

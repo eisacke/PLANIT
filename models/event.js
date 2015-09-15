@@ -5,7 +5,6 @@ var Location = require('./location');
 var EventSchema = new mongoose.Schema({
   title: String,
   description: String,
-  time: Date,
   date: Date,
   _creator: { type: mongoose.Schema.ObjectId, ref: 'User' },
   locations: [{ type: mongoose.Schema.ObjectId, ref: 'Location'}],
