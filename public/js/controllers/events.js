@@ -1,8 +1,8 @@
 angular
-  .module('EventPlan')
-  .controller('EventsController', EventsController)
+.module('EventPlan')
+.controller('EventsController', EventsController)
 
-EventsController.$inject = ['Event', '$state', '$stateParams', 'TokenService', '$window']
+EventsController.$inject = ['Event', '$state', '$stateParams','TokenService', '$window']
 function EventsController (Event, $state, $stateParams, TokenService, $window) {
 
   var self = this;
@@ -43,4 +43,4 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
     $state.go('indexEvents');
   }
 
-}
+} 
