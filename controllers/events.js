@@ -8,7 +8,7 @@ var Location = require('../models/location');
 // INDEX 
 router.get('/', function(req, res){
   Event.find()
-  .populate('locations')
+  .populate('locations creator')
   .exec(function(error, events){
     if(error)return res.status(404).json({message: 'Could not find any events'});
     return res.status(200).send(events);

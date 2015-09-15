@@ -40,8 +40,6 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
   // DELETE
   self.deleteEvent = function(event){
     Event.delete({id: event._id});
-    var index = self.all.indexOf(event);
-    self.all.splice(index, 1);
     $state.go('indexEvents');
   }
 
