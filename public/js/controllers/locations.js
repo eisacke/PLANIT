@@ -12,24 +12,6 @@ function LocationsController (Location, Event, $state, $stateParams) {
   self.form = false;
   self.place;
 
-  // ADD LOCATION
-  self.addLocation = function(){
-    // var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
-    // map.setCenter(newlatlong);
-    // marker.setPosition(newlatlong);
-    // map.setZoom(12);
-    
-    self.location.location['name'] = self.place.name;
-    self.location.location['address'] = self.place.formatted_address;
-    self.location.location['website'] = self.place.website;
-    self.location.location['phone'] = self.place.formatted_phone_number;
-    self.location.event_id = $stateParams.id;
-    Location.save(self.location, function(location){
-      self.location.location = {}
-      self.form = false;
-    });
-  }
-
   // SHOW NEW LOCATION FORM
   self.showForm = function(){
     self.form = true;
@@ -43,10 +25,9 @@ function LocationsController (Location, Event, $state, $stateParams) {
   }
 
   // GOOGLE PLACES STUFF
-  $(document).ready(function(){
+
   //Autocomplete variables
   var input = document.getElementById('location');
-  var searchform = document.getElementById('form');
   var autocomplete = new google.maps.places.Autocomplete(input);
 
   //Google Map variables
@@ -59,13 +40,23 @@ function LocationsController (Location, Event, $state, $stateParams) {
     console.log(self.place);
   });
 
-  // Add listener to search
-  searchform.addEventListener("submit", function() {
+  // ADD LOCATION
+  self.addLocation = function(){
     var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
     map.setCenter(newlatlong);
     marker.setPosition(newlatlong);
     map.setZoom(12);
-  });
+
+    self.location.location['name'] = self.place.name;
+    self.location.location['address'] = self.place.formatted_address;
+    self.location.location['website'] = self.place.website;
+    self.location.location['phone'] = self.place.formatted_phone_number;
+    self.location.event_id = $stateParams.id;
+    Location.save(self.location, function(location){
+      self.location.location = {}
+      self.form = false;
+    });
+  }
 
   //Reset the search box text on click
   input.addEventListener('click', function(){
@@ -87,6 +78,5 @@ function LocationsController (Location, Event, $state, $stateParams) {
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
-});
 
 }

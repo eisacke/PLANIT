@@ -2,29 +2,25 @@
   <div ng-controller="LocationsController as locations">
     <h2>Title: {{events.event.title}}</h2>
     <h3>Description: {{events.event.description}}</h3>
-    <p>Creator: {{events.event.creator}}</p>
+    <p>Creator: {{events.event.creator.email}}</p>
     <ul>
       <li ng-repeat="location in events.event.locations">
-      <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="locations.deleteLocation(location)">Delete Location</button>
+        <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="locations.deleteLocation(location)">Delete Location</button>
       </li>
     </ul>
-    <button ng-click="locations.showForm()">Add Location</button>
+    <button ng-click="locations.showForm()" ng-hide="locations.form">Add Location</button>
     <form ng-submit="locations.addLocation()" ng-show="locations.form">
       <h3>Add a location</h3>
-      <label for="name">Name:</label>
-      <input type="text" name="name" ng-model="locations.location.location.name">
       <label for="time">Time:</label>
       <input type="text" name="time" ng-model="locations.location.location.time">
       <button type="submit">Add Location</button>
     </form>
-    <form action="javascript:void(0);" name="form" id="form">
+    <div ng-show="locations.form">
+      <form action="javascript:void(0);" name="form" id="form">
         <input type="text" name="location" class="textbox form-control" id="location" value="" />
-        <input type="submit" value="Submit" class="submit" />
-    </form>
+      </form>
+    </div>
     <div id="map-canvas"></div>
     <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
   </div>
 </div>
-
-
-
