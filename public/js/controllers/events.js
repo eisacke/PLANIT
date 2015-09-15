@@ -37,6 +37,6 @@ function EventsController (Event, $state, $stateParams) {
     var index = self.all.indexOf(event);
     self.all.splice(index, 1);
     $state.go('indexEvents');
-  };
+  }
 
 }

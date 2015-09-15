@@ -38,9 +38,7 @@ function UsersController(User, TokenService){
     self.all = User.query();
   }
 
-  // Load users only if you are logged in!
   if (self.isLoggedIn()) {
-    self.getUsers();
     self.user = TokenService.parseJwt();
   }
 
