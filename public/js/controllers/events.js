@@ -12,6 +12,7 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
   // GET CURRENT USER INFO
   if ($window.localStorage['secret-handshake']) {
     self.creator = TokenService.parseJwt();
+    console.log(self.creator);
   }
 
   // INDEX

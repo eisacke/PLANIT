@@ -7,13 +7,13 @@
     <h2>Locations:</h2>
     <ul>
       <li ng-repeat="location in events.event.locations">
-        <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="locations.deleteLocation(location)">Delete Location</button>
+        <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="locations.deleteLocation(location)">X</button>
       </li>
     </ul>
     <h2>Invitees:</h2>
     <ul>
       <li ng-repeat="invitee in events.event.invitees">
-        <b>{{invitee.name}}</b> {{invitee.email}}<button ng-click="invitees.deleteInvitee(invitee)">Delete Invitee</button>
+        <b>{{invitee.name}}</b> {{invitee.email}}<button ng-click="invitees.deleteInvitee(invitee)">X</button>
       </li>
     </ul>
     <button ng-click="locations.showForm()">Add Location</button>
