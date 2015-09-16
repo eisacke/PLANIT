@@ -9,17 +9,22 @@
       </li>
     </ul>
     <button ng-click="locations.showForm()" ng-hide="locations.form">Add Location</button>
+
     <form ng-submit="locations.addLocation()" ng-show="locations.form">
       <h3>Add a location</h3>
       <label for="time">Time:</label>
       <input type="text" name="time" ng-model="locations.location.location.time">
+      <label for="time">Location:</label>
+      <input type="text" name="location" class="textbox" id="location" value="" />
       <button type="submit">Add Location</button>
     </form>
-    <div ng-show="locations.form">
+
+    <!-- <div ng-show="locations.form">
       <form action="javascript:void(0);" name="form" id="form">
         <input type="text" name="location" class="textbox form-control" id="location" value="" />
       </form>
-    </div>
+    </div> -->
+
     <div id="map-canvas"></div>
     <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
   </div>
