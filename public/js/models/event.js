@@ -14,7 +14,11 @@ function Event($resource) {
   'save':      { method: 'POST' },
   'query':     { method: 'GET', isArray: true},
   'remove':    { method: 'DELETE' },
-  'delete':    { method: 'DELETE' }
+  'delete':    { method: 'DELETE' },
+  'invite': { 
+    url: url + '/invite/send',
+    method: 'POST' 
+    }
   });
  return EventResource;
 }

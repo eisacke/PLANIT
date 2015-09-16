@@ -18,6 +18,7 @@
     </ul>
     <button ng-click="locations.showForm()" ng-hide="locations.form">Add Location</button>
     <button ng-click="invitees.showForm()" ng-hide="invitees.form">Add Invitee</button>
+    <button ng-click="events.sendInvite()">Send Invite</button>
 
     <form ng-submit="locations.addLocation()" ng-show="locations.form">
       <h3>Add a location</h3>

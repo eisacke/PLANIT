@@ -43,4 +43,10 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
     $state.go('indexEvents');
   }
 
+  // SEND EVENT INVITE
+  self.sendInvite = function(){
+    var event_id = $stateParams.id;
+    Event.invite({id: event_id});
+  }
+
 } 
