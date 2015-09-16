@@ -8,7 +8,7 @@ var EventSchema = new mongoose.Schema({
   date: Date,
   creator: { type: mongoose.Schema.ObjectId, ref: 'User' },
   locations: [{ type: mongoose.Schema.ObjectId, ref: 'Location'}],
-  invitees: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
+  invitees: [{ type: mongoose.Schema.ObjectId, ref: 'Invitee'}]
 });
 
 var Event = mongoose.model('Event', EventSchema);

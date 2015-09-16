@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 var Invitee = require('../models/invitee');
+var Event = require('../models/event');
+
+// INDEX
+router.get('/', function(req, res){
+  Invitee.find(function(error, invitees){
+    if (error) return res.status(404).json({message: 'There are no invitees in the database.'});
+    return res.status(200).send(invitees);
+  });
+});
 
 // CREATE
 router.post('/', function(req, res){
