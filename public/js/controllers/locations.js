@@ -37,7 +37,6 @@ function LocationsController (Location, Event, $state, $stateParams) {
   //Add listener to detect autocomplete selection
   google.maps.event.addListener(autocomplete, 'place_changed', function () {
     self.place = autocomplete.getPlace();
-    console.log(self.place);
   });
 
   // ADD LOCATION
@@ -58,24 +57,35 @@ function LocationsController (Location, Event, $state, $stateParams) {
     });
   }
 
-  //Reset the search box text on click
-  input.addEventListener('click', function(){
-    input.value = "";
-  });
+  self.getLocation = function() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(self.showPosition);
+      } else { 
+          console.log("Geolocation is not supported by this browser.");
+      }
+  }
 
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(51.517503,-0.133896);
+  self.showPosition = function(position) {
+      self.myLatlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude); 
+      self.initialize();
+  }
+
+  self.initialize = function() {
     var mapOptions = {
       zoom: 12,
-      center: myLatlng
+      center: self.myLatlng
     }
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     marker = new google.maps.Marker({
-      position: myLatlng,
+      position: self.myLatlng,
       map: map,
       title: 'Main map'
     });
   }
 
-  initialize();
+  input.addEventListener('click', function(){
+    input.value = "";
+  });
+
+  self.getLocation();
 }
