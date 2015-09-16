@@ -14,7 +14,7 @@ function LocationsController (Location, Event, $state, $stateParams) {
 
   // SHOW NEW LOCATION FORM
   self.showForm = function(){
-    self.form = true;
+    self.form = self.form === false ? true: false;
   }
 
   // DELETE LOCATION

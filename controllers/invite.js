@@ -30,8 +30,6 @@ router.post('/send', function(req, res){
 sendInvite = function(event){
 
   for (var i = 0; i < event.invitees.length; i++) { 
-    console.log(event.invitees[i].email);
-    console.log(event);
 
     var invitee = event.invitees[i].email;
     var inviteeName = event.invitees[i].name;

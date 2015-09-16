@@ -16,8 +16,8 @@
         <b>{{invitee.name}}</b> {{invitee.email}}<button ng-click="invitees.deleteInvitee(invitee)">Delete Invitee</button>
       </li>
     </ul>
-    <button ng-click="locations.showForm()" ng-hide="locations.form">Add Location</button>
-    <button ng-click="invitees.showForm()" ng-hide="invitees.form">Add Invitee</button>
+    <button ng-click="locations.showForm()">Add Location</button>
+    <button ng-click="invitees.showForm()">Add Invitee</button>
     <button ng-click="events.sendInvite()">Send Invite</button>
 
     <form ng-submit="locations.addLocation()" ng-show="locations.form">

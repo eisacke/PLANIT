@@ -6,6 +6,9 @@
 <body>
   <h1>LET'S PARTY!</h1>
   <h2><%= locals.title %></h2>
+  <% for (var i = 0; i < locals.locations.length; i++) { %>
+  <h3><%= locals.locations[i].name %></h3>
+  <% }; %>
   <img src="http://facehoff.herokuapp.com/300/300">
 </body>
 </html>

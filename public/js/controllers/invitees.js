@@ -13,7 +13,7 @@ function InviteesController (Invitee, Event, $state, $stateParams) {
 
   // SHOW NEW INVITEE FORM
   self.showForm = function(){
-    self.form = true;
+    self.form = self.form === false ? true: false;
   }
 
   // DELETE INVITEE
