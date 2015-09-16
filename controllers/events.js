@@ -19,7 +19,7 @@ router.get('/', function(req, res){
 router.get('/:id', function(req,res){
   var id = req.params.id;
   Event.findById({_id: id})
-  .populate('locations creator')
+  .populate('locations creator invitees')
   .exec(function(error, event){
     if(error) return res.status(404).send({message: 'Could not find event'});
     return res.status(200).send(event);

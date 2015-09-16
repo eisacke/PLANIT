@@ -1,6 +1,6 @@
 angular
-.module('EventPlan')
-.controller('LocationsController', LocationsController)
+  .module('EventPlan')
+  .controller('LocationsController', LocationsController)
 
 LocationsController.$inject = ['Location', 'Event', '$state', '$stateParams']
 function LocationsController (Location, Event, $state, $stateParams) {
