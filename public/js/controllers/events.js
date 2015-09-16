@@ -18,6 +18,11 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
   // INDEX
   self.all = Event.query();
 
+  // USER EVENTS ONLY
+  // self.all = Event.search({
+  //   query: self.creator._id
+  // }, function(result){});
+
   // FIND EVENT BY PARAMS ID
   if ($stateParams.id) {
     Event.get({ id: $stateParams.id}, function(event){
@@ -27,7 +32,7 @@ function EventsController (Event, $state, $stateParams, TokenService, $window) {
 
   // SHOW
   self.showEvent = function(event) {
-    $state.go('showEvent', { id: event._id });
+    // $state.go('showEvent', { id: event._id });
   }
 
   // CREATE

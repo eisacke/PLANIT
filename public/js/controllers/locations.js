@@ -77,6 +77,5 @@ function LocationsController (Location, Event, $state, $stateParams) {
     });
   }
 
-  google.maps.event.addDomListener(window, 'load', initialize);
-
+  initialize();
 }

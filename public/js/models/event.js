@@ -18,6 +18,12 @@ function Event($resource) {
   'invite': { 
     url: url + '/invite/send',
     method: 'POST' 
+    },
+    'search': {
+      method: 'GET',
+      params: {
+        query: '@query'
+      }
     }
   });
  return EventResource;
