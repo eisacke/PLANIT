@@ -1,14 +1,21 @@
-<div class="container-fluid" ng-controller="AllEventsController as allEvents">
+<div class="event-create-background" ng-controller="AllEventsController as allEvents">
 
-  <h1>Create Event</h1>
+  <md-content class="signin">
+    <form id="newEvent" ng-submit="allEvents.createEvent()">
+    <md-input-container>
+      <label>Title</label>
+      <input type="text" name="name" ng-model="allEvents.newEvent.title">
+    </md-input-container>
+    <md-input-container>
+      <label>Description</label>
+      <input type="text" name="description" ng-model="allEvents.newEvent.description">
+    </md-input-container>
+      <md-input-container>
+        <label>Date</label>
+        <input type="date" name="email" ng-model="allEvents.newEvent.date">
+      </md-input-container>
+      <input type="submit" value="Create Event">
+    </form>
+  </md-content>
 
-  <form ng-submit="allEvents.createEvent()">
-    <label for="title">Title:</label>
-    <input type="text" name="title" ng-model="allEvents.newEvent.title">
-    <label for="description">Description:</label>
-    <input type="text" name="description" ng-model="allEvents.newEvent.description">
-    <label for="date">Date:</label>
-    <input type="date" name="date" ng-model="allEvents.newEvent.date">
-    <button type="submit">Create Event</button>
-  </form>
 </div>
