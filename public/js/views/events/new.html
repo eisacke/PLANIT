@@ -1,12 +1,12 @@
-<div class="container-fluid" ng-controller="EventsController as events">
+<div class="container-fluid" ng-controller="AllEventsController as allEvents">
 
   <h1>Create Event</h1>
 
-  <form ng-submit="events.createEvent()">
+  <form ng-submit="allEvents.createEvent()">
     <label for="title">Title:</label>
-    <input type="text" name="title" ng-model="events.newEvent.title">
+    <input type="text" name="title" ng-model="allEvents.newEvent.title">
     <label for="description">Description:</label>
-    <input type="text" name="description" ng-model="events.newEvent.description">
+    <input type="text" name="description" ng-model="allEvents.newEvent.description">
     <button type="submit">Create Event</button>
   </form>
 </div>

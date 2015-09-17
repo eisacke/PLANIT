@@ -1,30 +1,19 @@
-<div id="homepage-background">
-  
-<!-- <div class="container-fluid">
-  <section ng-hide="users.isLoggedIn()">
-    <h3>Sign In</h3>
-    <form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
-      <input type="submit" value="Sign In">
-    </form>
-  </section>
-</div> -->
+<div class="homepage-background">
 
-<md-content class="signin">
-<form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
-    <md-input-container>
-      <label>Email</label>
-      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
-    </md-input-container>
-    <md-input-container>
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
-    </md-input-container>
-    <input type="submit" value="Sign In">
+  <md-content class="signin">
+    <h2>SIGN IN</h2>
+    <form id="signin" ng-submit="users.authorize()">
+      <md-input-container>
+        <label>Email</label>
+        <input type="text" name="email" ng-model="users.user.email">
+      </md-input-container>
+      <md-input-container>
+        <label>Password</label>
+        <input type="password" name="password" ng-model="users.user.password">
+      </md-input-container>
+      <input type="submit" value="Sign Up">
     </form>
+    <p>Not a user? Click <a href="#signup">here</a> to sign up</p>
   </md-content>
 
 </div>

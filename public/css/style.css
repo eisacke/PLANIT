@@ -1,49 +1,22 @@
 header {
   width: 100%;
   background: white;
-  border-bottom: 1px solid #EDEEEE; }
-
-header nav {
-  max-width: 960px;
-  margin: 0 auto;
-  height: 60px;
-  line-height: 60px; }
-
-header nav ul {
-  height: 60px;
-  line-height: 60px;
-  font-size: 13px; }
-
-header nav ul li:first-child {
-  float: left;
-  padding: 0;
-  font-size: 25px;
-  font-weight: bold; }
-
-header nav ul li {
-  display: inline;
-  height: 60px;
-  line-height: 60px;
-  float: right;
-  padding: 0 10px; }
-
-header nav ul li a {
-  text-decoration: none;
-  color: black; }
-
-.signin {
-  background: transparent; }
-
-#map-canvas {
-  height: 500px;
-  width: 500px; }
+  text-align: center;
+  padding: 15px; }
 
 #nav-logo {
-  height: 150px;
+  height: 35px;
   margin: 0 auto; }
 
-#nav-title {
-  letter-spacing: 2px; }
+.footer {
+  padding: 20px;
+  background-color: #FF5964;
+  width: 100%;
+  position: fixed;
+  bottom: 0px; }
+
+body {
+  font-family: 'Poppins', sans-serif; }
 
 h2 {
   text-transform: uppercase;
@@ -58,21 +31,48 @@ h4 {
   font-style: italic;
   margin: 0; }
 
+html {
+  position: relative; }
+
+main {
+  margin-bottom: 60px; }
+
+.homepage-background {
+  height: 100vh;
+  width: 100vw;
+  background-color: #FF5964; }
+
+button {
+  background: white;
+  border: 2px solid black; }
+
+input[type=submit] {
+  background: white;
+  border: 1px solid black; }
+
+.signin {
+  background: lightgrey;
+  padding: 20px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+md-input-container.md-default-theme label,
+md-input-container.md-default-theme .md-placeholder {
+  color: white !important; }
+
+#map-canvas {
+  height: 400px;
+  width: 100vw; }
+
 .infoWindow {
   text-align: center;
   margin-left: 23px; }
 
 img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
   display: none; }
-
-body {
-  font-family: 'Poppins', sans-serif; }
-
-#homepage-background {
-  height: 100vh;
-  width: 100vw;
-  background-position: center;
-  background-size: cover;
-  background-image: url("../images/placeholder.jpeg"); }
 
 /*# sourceMappingURL=style.css.map */

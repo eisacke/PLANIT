@@ -5,16 +5,19 @@
   <title>Event Planner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+  <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body ng-controller="UsersController as users">
 
   <div ng-include="'js/views/shared/header.html'"></div>
-  <div ui-view></div>
+  <main>
+    <div ui-view></div>
+  </main>
+  <div ng-include="'js/views/shared/footer.html'"></div>
 
   <!-- Google Maps API -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>

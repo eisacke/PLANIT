@@ -43,13 +43,13 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     // $state.go('showEvent', { id: event._id });
   }
 
-  // CREATE
-  self.createEvent = function() {
-    self.newEvent.creator = self.creator._id;
-    Event.save(self.newEvent, function(response) {
-      self.showEvent(response);
-    });
-  }
+  // // CREATE
+  // self.createEvent = function() {
+  //   self.newEvent.creator = self.creator._id;
+  //   Event.save(self.newEvent, function(response) {
+  //     self.showEvent(response);
+  //   });
+  // }
 
   // DELETE
   self.deleteEvent = function(event){

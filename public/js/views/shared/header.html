@@ -1,12 +1,11 @@
 <header>
   <nav>
-    <ul>
-      <li><a href="#home">PLANIT</a></li>
-      <li ng-hide="users.isLoggedIn()"><a href="#signin">Sign In</a></li>
-      <li ng-hide="users.isLoggedIn()"><a href="#signup">Sign Up</a></li>
-      <li ng-show="users.isLoggedIn()" ng-click="users.logout()"><a href="#home">Logout</a></li>
-      <li ng-show="users.isLoggedIn()"><a href="#events/new">Create Event</a></li>
-      <li ng-show="users.isLoggedIn()"><a href="#events">My Events</a></li>
-    </ul>
+  <img id="nav-logo"src="../images/logo-04.png">
   </nav>
 </header>
+
+<ul>
+  <li ng-show="users.isLoggedIn()" ng-click="users.logout()"><a href="#home">Logout</a></li>
+  <li ng-show="users.isLoggedIn()"><a href="#events/new">Create Event</a></li>
+  <li ng-show="users.isLoggedIn()"><a href="#events">My Events</a></li>
+</ul>

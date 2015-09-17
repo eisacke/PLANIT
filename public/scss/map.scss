@@ -1,0 +1,14 @@
+#map-canvas {
+  height: 400px;
+  width: 100vw;
+}
+
+.infoWindow {
+  text-align: center;
+  margin-left: 23px;
+}
+
+// Gets rid of 'x' in map infowindow
+img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
+    display: none;
+}

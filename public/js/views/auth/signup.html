@@ -1,12 +1,25 @@
-<div class="container-fluid">
-  <section ng-hide="users.isLoggedIn()">
-    <h3>Sign Up</h3>
-    <form id="signup" ng-hide="users.isLoggedIn()" ng-submit="users.join()">
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
+
+
+<div class="homepage-background">
+
+  <md-content class="signin">
+    <h2>SIGN UP</h2>
+    <form id="signup" ng-submit="users.join()">
+    <md-input-container>
+      <label>Name</label>
+      <input type="text" name="name" ng-model="users.user.name">
+    </md-input-container>
+      <md-input-container>
+        <label>Email</label>
+        <input type="text" name="email" ng-model="users.user.email">
+      </md-input-container>
+      <md-input-container>
+        <label>Password</label>
+        <input type="password" name="password" ng-model="users.user.password">
+      </md-input-container>
       <input type="submit" value="Sign Up">
     </form>
-  </section>
+    <p>Already user? Click <a href="#home">here</a> to sign in</p>
+  </md-content>
+
 </div>

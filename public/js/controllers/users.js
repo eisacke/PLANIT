@@ -2,11 +2,10 @@ angular
   .module('EventPlan')
   .controller('UsersController', UsersController);
 
-UsersController.$inject = ['User', 'TokenService'];
-function UsersController(User, TokenService){
+UsersController.$inject = ['User', 'TokenService', '$state'];
+function UsersController(User, TokenService, $state){
   var self = this;
-  self.all = [];
-  self.users = {};
+  self.user = {};
 
   // Function to display the message back to the User
   function showMessage(res) {
@@ -19,14 +18,19 @@ function UsersController(User, TokenService){
 
   self.authorize = function() {
     User.signin(self.user, showMessage);
+    $state.go('indexEvents');
+    self.user = {}
   }
 
   self.join = function() {
     User.signup(self.user, showMessage);
+    $state.go('indexEvents');
+    self.user = {}
   }
 
   self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
+    $state.go('home');
   }
 
   self.isLoggedIn = function() {
