@@ -18,13 +18,13 @@ function UsersController(User, TokenService, $state){
 
   self.authorize = function() {
     User.signin(self.user, showMessage);
-    $state.go('indexEvents');
+    $state.go('newEvent');
     self.user = {}
   }
 
   self.join = function() {
     User.signup(self.user, showMessage);
-    $state.go('indexEvents');
+    $state.go('newEvent');
     self.user = {}
   }
 

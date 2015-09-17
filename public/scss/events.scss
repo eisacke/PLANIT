@@ -1,0 +1,44 @@
+.event-index-each {
+  background-color: #f6f6f6;
+  margin: 5px 0;
+  width: 100%;
+  padding: 10px;
+  height: 85px;
+}
+
+.event-index {
+  
+}
+
+.event-index-info {
+  padding: 20px;
+  background-color: white;
+  height: 45px;
+  margin-right: 10px;
+  display: inline-block;
+  width: calc(100% - 155px);
+  overflow: hidden;
+}
+
+.event-index-date {
+  text-align: center;
+  width: 65px;
+  height: 60px;
+  margin-right: 10px;
+  background-color: white;
+  padding: 10px;
+  padding-top: 15px;
+  float: left;
+}
+
+.event-index-date-day {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.event-index-date-month {
+  font-weight: 900;
+  font-size: 14px;
+  font-family: 'Old Standard TT', serif;
+  font-style: italic;
+}

@@ -6,8 +6,24 @@
       <ul>
         <li><h3>{{event.title}}</h3></li>
         <li><p>{{event.description}}</p></li>
+        <li><p>Day: {{event.date | date:'d'}}</p></li>
+        <li><p>Month: {{event.date | date:'MMMM'}}</p></li>
         <li><a href="#/events/{{event._id}}">Show</a></li>
       </ul>
     </li>
   </ul>
+</div>
+
+<div class="event-index" ng-controller="AllEventsController as allEvents">
+  <h3>MY EVENTS</h3>
+  <div class="event-index-each" ng-repeat="event in allEvents.all">
+    <div class="event-index-date">
+      <span class="event-index-date-day">{{event.date | date:'d'}}</span><br>
+      <span class="event-index-date-month">{{event.date | date:'MMMM'}}</span>
+    </div>
+    <div class="event-index-info">
+      <h2>{{event.title}}</h2>
+      <h4>{{event.description}}</h4>
+    </div>
+  </div>
 </div>
