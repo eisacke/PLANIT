@@ -24,7 +24,7 @@
     <input type="text" name="time" ng-model="events.location.location.time">
     <label for="time">Location:</label>
     <input type="text" name="location" class="textbox" id="location" value="" />
-    <button ng-click="events.showLocationForm()" type="submit">Add Location</button>
+    <button ng-click="events.addAllPins()" ng-click="events.showLocationForm()" type="submit">Add Location</button>
   </form>
 
   <form ng-submit="events.addInvitee()" ng-show="events.inviteeForm">

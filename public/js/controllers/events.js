@@ -163,6 +163,10 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
       center: self.myLatlng
     }
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    self.addAllPins();
+  }
+
+  self.addAllPins = function(){
     for (var i = 0; i < self.event.locations.length; i++) {
       addPin(self.event.locations[i]);
     } 
