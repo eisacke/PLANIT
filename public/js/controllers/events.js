@@ -78,14 +78,15 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
   // DELETE INVITEE
   self.deleteInvitee = function(invitee){
     Invitee.delete({id: invitee._id});
-    // var index = self.all.indexOf(invitee);
-    // self.all.splice(index, 1);
+    var index = self.event.invitees.indexOf(invitee);
+    self.event.invitees.splice(index, 1);
   }
 
   // ADD INVITEE
   self.addInvitee = function(){
     self.invitee.event_id = $stateParams.id;
     Invitee.save(self.invitee, function(invitee){
+      self.event.invitees.push(invitee);
       self.invitee.invitee = {}
       self.form = false;
     });
@@ -101,8 +102,8 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
   // DELETE LOCATION
   self.deleteLocation = function(location){
     Location.delete({id: location._id});
-    // var index = self.all.indexOf(location);
-    // self.all.splice(index, 1);
+    var index = self.event.locations.indexOf(location);
+    self.event.locations.splice(index, 1);
   }
 
   // GOOGLE PLACES STUFF
@@ -133,6 +134,7 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     self.location.location['phone'] = self.place.formatted_phone_number;
     self.location.event_id = $stateParams.id;
     Location.save(self.location, function(location){
+      self.event.locations.push(location);
       self.location.location = {}
       self.form = false;
     });

@@ -24,7 +24,7 @@
     <input type="text" name="time" ng-model="events.location.location.time">
     <label for="time">Location:</label>
     <input type="text" name="location" class="textbox" id="location" value="" />
-    <button type="submit">Add Location</button>
+    <button ng-click="events.showLocationForm()" type="submit">Add Location</button>
   </form>
 
   <form ng-submit="events.addInvitee()" ng-show="events.inviteeForm">
@@ -33,7 +33,7 @@
     <input type="text" name="name" ng-model="events.invitee.invitee.name">
     <label for="email">Email:</label>
     <input type="text" name="email" ng-model="events.invitee.invitee.email">
-    <button type="submit">Add Invitee</button>
+    <button ng-click="events.showInviteeForm()" type="submit">Add Invitee</button>
   </form>
 
   <div id="map-canvas"></div>
