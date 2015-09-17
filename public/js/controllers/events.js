@@ -141,6 +141,9 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     });
   }
 
+  var infowindow;
+  var marker;
+
   self.getLocation = function() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(self.showPosition);
@@ -160,53 +163,39 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
       center: self.myLatlng
     }
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    // marker = new google.maps.Marker({
-    //   position: self.myLatlng,
-    //   map: map,
-    //   title: 'Main map'
-    // });
     for (var i = 0; i < self.event.locations.length; i++) {
       addPin(self.event.locations[i]);
     } 
   }
 
   function addPin(location, index) {
-    console.log(location);
-    // // Setting up marker based on json bar (name, lat, lng) data
-    // var marker = new google.maps.Marker({
-    //   position: {lat: bar.lat, lng: bar.lng},
-    //   map: window.map,
-    //   title: bar.name,
-    //   animation: google.maps.Animation.DROP,
-    //   icon: "http://i.imgur.com/mKPqLrX.png"
-    // });
+
+    var marker = new google.maps.Marker({
+      position: {lat: location.lat, lng: location.lng},
+      map: map,
+      title: location.name,
+      // icon: "http://i.imgur.com/mKPqLrX.png"
+    });
     
-    // // Setting up info window based on json bar (name, image, description, facebook) data
-    // // Adding Citymapper link with bar lat and lng
-    // // Adding click listener to open info window when marker is clicked
-    // marker.addListener('click', function(){
-    //   markerClick(marker, bar);
-    // });  
+    // Setting up info window based on json bar (name, image, description, facebook) data
+    // Adding Citymapper link with bar lat and lng
+    // Adding click listener to open info window when marker is clicked
+    marker.addListener('click', function(){
+      markerClick(marker, location);
+    });  
   }
 
-  function markerClick(marker, bar) {
+  function markerClick(marker, location) {
     if(infowindow) infowindow.close();
 
     infowindow = new google.maps.InfoWindow({
       content: '<div id="map_window">'+
-      '<h2 id="map_title">' + bar.name + '</h2>'+
-      '<div id="map_content">'+
-      '<div class="bar_image" style="background-image: url('+ bar.image +')"></div>' +
-      '<p id="map_address">' + bar.address + '</p>' +
-      '<p id="map_description">' + bar.description + '</p>' +
-      '<a href="https://citymapper.com/directions?endcoord='
-      + bar.lat + ',' + bar.lng + '&endname=' + bar.name +'" target="_blank"><img class="citymapper" src="../images/custom-citymapper.png"></a>' +
-      '</div>'+
+      '<h2 id="map_title">' + location.name + '</h2>'+
       '</div>'
     });
 
-    window.map.setCenter(marker.getPosition());
-    infowindow.open(window.map, marker);
+    map.setCenter(marker.getPosition());
+    infowindow.open(map, marker);
   };
 
   input.addEventListener('click', function(){
