@@ -1,6 +1,7 @@
 <div class="container-fluid" ng-controller="EventsController as events">
   <h2>{{events.event.title}}</h2>
   <h4>{{events.event.description}}</h4>
+  <h4>{{events.event.date | date:'fullDate'}}</h4>
   <p>Creator: {{events.event.creator.email}}</p>
   <h2>Locations:</h2>
 
@@ -18,6 +19,7 @@
   <button ng-click="events.showLocationForm()">Add Location</button>
   <button ng-click="events.showInviteeForm()">Add Invitee</button>
   <button ng-click="events.sendInvite()">Send Invite</button>
+  <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
 
   <form ng-submit="events.addLocation()" ng-show="events.locationForm">
     <h3>Add a location</h3>
@@ -38,5 +40,4 @@
   </form>
 
   <div id="map-canvas"></div>
-  <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
 </div>

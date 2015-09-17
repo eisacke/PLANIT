@@ -38,10 +38,10 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     });
   }
 
-  // SHOW
-  self.showEvent = function(event) {
-    // $state.go('showEvent', { id: event._id });
-  }
+  // // SHOW
+  // self.showEvent = function(event) {
+  //   // $state.go('showEvent', { id: event._id });
+  // }
 
   // // CREATE
   // self.createEvent = function() {

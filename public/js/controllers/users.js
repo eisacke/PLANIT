@@ -30,6 +30,7 @@ function UsersController(User, TokenService, $state){
 
   self.logout = function() {
     TokenService.removeToken && TokenService.removeToken();
+    self.user = {}
     $state.go('home');
   }
 

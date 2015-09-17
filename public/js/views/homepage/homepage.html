@@ -1,7 +1,6 @@
 <div class="homepage-background">
 
   <md-content class="signin">
-    <h2>SIGN IN</h2>
     <form id="signin" ng-submit="users.authorize()">
       <md-input-container>
         <label>Email</label>
@@ -11,9 +10,9 @@
         <label>Password</label>
         <input type="password" name="password" ng-model="users.user.password">
       </md-input-container>
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="Sign In">
     </form>
-    <p>Not a user? Click <a href="#signup">here</a> to sign up</p>
+    <p class="homepage-text">Not a user? Click <a href="#signup">here</a> to sign up</p>
   </md-content>
 
 </div>
