@@ -31,11 +31,6 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
   // INDEX
   self.all = Event.query();
 
-  // USER EVENTS ONLY
-  // self.all = Event.search({
-  //   query: self.creator._id
-  // }, function(result){});
-
   // FIND EVENT BY PARAMS ID
   if ($stateParams.id) {
     Event.get({ id: $stateParams.id}, function(event){
@@ -109,12 +104,17 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
   // GOOGLE PLACES STUFF
 
   //Autocomplete variables
-  var input = document.getElementById('location');
+  // var input = (document.getElementById('location'));
+  var input = $("#location")[0];
   var autocomplete = new google.maps.places.Autocomplete(input);
 
   //Google Map variables
   var map;
   var marker;
+  var infowindow;
+  var marker;
+  var style = [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
+
 
   //Add listener to detect autocomplete selection
   google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -135,16 +135,14 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     self.location.location['phone'] = self.place.formatted_phone_number;
     self.location.event_id = $stateParams.id;
     Location.save(self.location, function(location){
-      addPin(location);
+      self.addPin(location);
       self.place = {};
+      input.value = "";
       self.event.locations.push(location);
       self.location.location = {}
       self.form = false;
     });
   }
-
-  var infowindow;
-  var marker;
 
   self.getLocation = function() {
       if (navigator.geolocation) {
@@ -161,43 +159,38 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
 
   self.initialize = function() {
     var mapOptions = {
-      zoom: 12,
-      center: self.myLatlng
+      zoom: 13,
+      center: self.myLatlng,
+      styles: style
     }
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    self.addAllPins();
-  }
-
-  self.addAllPins = function(){
+    
     for (var i = 0; i < self.event.locations.length; i++) {
-      addPin(self.event.locations[i]);
-    } 
+      self.addPin(self.event.locations[i]);
+    }
   }
 
-  function addPin(location, index) {
-    console.log(location);
+  self.addPin = function(location, index) {
 
     var marker = new google.maps.Marker({
       position: {lat: location.lat, lng: location.lng},
       map: map,
       title: location.name,
-      // icon: "http://i.imgur.com/mKPqLrX.png"
+      icon: "http://i.imgur.com/nitqbJ4.png"
     });
     
-    // Setting up info window based on json bar (name, image, description, facebook) data
-    // Adding Citymapper link with bar lat and lng
-    // Adding click listener to open info window when marker is clicked
     marker.addListener('click', function(){
-      markerClick(marker, location);
+      self.markerClick(marker, location);
     });  
   }
 
-  function markerClick(marker, location) {
+  self.markerClick = function(marker, location) {
     if(infowindow) infowindow.close();
 
     infowindow = new google.maps.InfoWindow({
-      content: '<div id="map_window">'+
-      '<h2 id="map_title">' + location.name + '</h2>'+
+      content: '<div class="infoWindow">'+
+      '<h2>' + location.name + '</h2>'+
+      '<h4>' + location.time + '</h4>'+
       '</div>'
     });
 

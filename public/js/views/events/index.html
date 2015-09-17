@@ -1,8 +1,8 @@
-<div class="container-fluid" ng-controller="EventsController as events">
+<div class="container-fluid" ng-controller="AllEventsController as allEvents">
   <h1>All Events</h1>
 
   <ul>
-    <li ng-repeat="event in events.all" >
+    <li ng-repeat="event in allEvents.all" >
       <ul>
         <li><h3>{{event.title}}</h3></li>
         <li><p>{{event.description}}</p></li>
