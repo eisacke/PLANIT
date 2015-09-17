@@ -1,13 +1,26 @@
 .event-index-each {
   background-color: #f6f6f6;
-  margin: 5px 0;
+  margin: 10px 0;
   width: 100%;
   padding: 10px;
   height: 85px;
 }
 
-.event-index {
-  
+.event-show {
+  background-color: #f6f6f6;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+.event-show-info {
+  padding: 20px;
+  padding-bottom: 2px;
+  background-color: white;
+  margin-right: 10px;
+  display: inline-block;
+  width: calc(100% - 155px);
+  overflow: hidden;
 }
 
 .event-index-info {
@@ -41,4 +54,34 @@
   font-size: 14px;
   font-family: 'Old Standard TT', serif;
   font-style: italic;
+}
+
+.mini-delete {
+  background-color: #FF5964;
+  border: 1px solid #FF5964;
+  font-size: 8px;
+  color: white;
+  font-weight: 900;
+  margin-left: 5px;
+  margin-bottom: 7px;
+  position: relative;
+  top: -2px;
+}
+
+.form-button {
+  background: #333;
+  border: 1px solid #333;
+  color: white;
+  padding: 5px 10px;
+  width: calc(50% - 2.5px);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin: 3px 0;
+}
+
+.form-button:hover{
+  background: #FF5964;
+  border: 1px solid #FF5964;
 }

@@ -1,25 +1,35 @@
 <div class="container-fluid" ng-controller="EventsController as events">
-  <h2>{{events.event.title}}</h2>
-  <h4>{{events.event.description}}</h4>
-  <h4>{{events.event.date | date:'fullDate'}}</h4>
-  <p>Creator: {{events.event.creator.email}}</p>
-  <h2>Locations:</h2>
+  <div class="event-show">
+    <div class="event-index-date">
+      <span class="event-index-date-day">{{events.event.date | date:'d'}}</span><br>
+      <span class="event-index-date-month">{{events.event.date | date:'MMMM'}}</span>
+    </div>
+    <div class="event-show-info">
+      <h2>{{events.event.title}}</h2>
+      <h4>{{events.event.description}}</h4><br>
+      <div ng-show="events.event.locations != 0">
+        <h2>Locations:</h2>
+        <ul>
+          <li ng-repeat="location in events.event.locations">
+            <p>{{location.time}} &bull; {{location.name}} &bull; {{location.address}}<button class="mini-delete" ng-click="events.deleteLocation(location)">X</button></p>
+          </li>
+        </ul>
+      </div>
+      <div ng-show="events.event.invitees != 0">
+        <h2>Invitees:</h2>
+        <ul>
+          <li ng-repeat="invitee in events.event.invitees">
+            <p>{{invitee.name}}<button class="mini-delete" ng-click="events.deleteInvitee(invitee)">X</button></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <ul>
-    <li ng-repeat="location in events.event.locations">
-      <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="events.deleteLocation(location)">X</button>
-    </li>
-  </ul>
-  <h2>Invitees:</h2>
-  <ul>
-    <li ng-repeat="invitee in events.event.invitees">
-      <b>{{invitee.name}}</b> {{invitee.email}}<button ng-click="events.deleteInvitee(invitee)">X</button>
-    </li>
-  </ul>
-  <button ng-click="events.showLocationForm()">Add Location</button>
-  <button ng-click="events.showInviteeForm()">Add Invitee</button>
-  <button ng-click="events.sendInvite()">Send Invite</button>
-  <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
+  <button class="form-button" ng-click="events.showLocationForm()">Add Location</button>
+  <button class="form-button" ng-click="events.showInviteeForm()">Add Invitee</button>
+  <button class="form-button" ng-click="events.sendInvite()">Send Invite</button>
+  <button class="form-button" ng-click="events.deleteEvent(events.event)">Delete Event</button>
 
   <form ng-submit="events.addLocation()" ng-show="events.locationForm">
     <h3>Add a location</h3>
