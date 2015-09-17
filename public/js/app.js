@@ -1,5 +1,5 @@
 angular
-  .module('EventPlan', ['ngResource', 'ui.router', 'angular-jwt'])
+  .module('EventPlan', ['ngResource', 'ui.router', 'angular-jwt', 'ngMaterial', 'ngAnimate', 'ngAria'])
   .constant('API', 'http://localhost:3000/api')
   .config(MainRouter)
   .config(AuthInterceptor);

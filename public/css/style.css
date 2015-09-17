@@ -31,6 +31,9 @@ header nav ul li a {
   text-decoration: none;
   color: black; }
 
+.signin {
+  background: transparent; }
+
 #map-canvas {
   height: 500px;
   width: 500px; }
@@ -66,8 +69,10 @@ body {
   font-family: 'Poppins', sans-serif; }
 
 #homepage-background {
-  height: 80px;
-  width: 80px;
-  background-color: aliceblue; }
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/placeholder.jpeg"); }
 
 /*# sourceMappingURL=style.css.map */

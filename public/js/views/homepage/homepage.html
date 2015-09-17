@@ -1,1 +1,30 @@
-<div id="homepage-background"><p>Here I am!</p></div>
+<div id="homepage-background">
+  
+<!-- <div class="container-fluid">
+  <section ng-hide="users.isLoggedIn()">
+    <h3>Sign In</h3>
+    <form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
+      <label for="email">Email</label>
+      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
+      <input type="submit" value="Sign In">
+    </form>
+  </section>
+</div> -->
+
+<md-content class="signin">
+<form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
+    <md-input-container>
+      <label>Email</label>
+      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
+    </md-input-container>
+    <md-input-container>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
+    </md-input-container>
+    <input type="submit" value="Sign In">
+    </form>
+  </md-content>
+
+</div>

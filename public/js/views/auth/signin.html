@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <section ng-hide="users.isLoggedIn()">
     <h3>Sign In</h3>
     <form id="signin" ng-hide="users.isLoggedIn()" ng-submit="users.authorize()">
@@ -9,4 +9,15 @@
       <input type="submit" value="Sign In">
     </form>
   </section>
-</div>
+</div> -->
+
+<md-content>
+    <md-input-container>
+      <label>Title</label>
+      <input ng-model="user.title">
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input ng-model="user.email" type="email">
+    </md-input-container>
+  </md-content>
