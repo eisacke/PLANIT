@@ -135,6 +135,8 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     self.location.location['phone'] = self.place.formatted_phone_number;
     self.location.event_id = $stateParams.id;
     Location.save(self.location, function(location){
+      addPin(location);
+      self.place = {};
       self.event.locations.push(location);
       self.location.location = {}
       self.form = false;
@@ -173,6 +175,7 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
   }
 
   function addPin(location, index) {
+    console.log(location);
 
     var marker = new google.maps.Marker({
       position: {lat: location.lat, lng: location.lng},
