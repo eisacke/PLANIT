@@ -1068,7 +1068,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -5172,7 +5172,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5278,7 +5278,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5798,5 +5798,12 @@ button.close {
 #map-canvas {
   height: 500px;
   width: 500px; }
+
+#nav-logo {
+  height: 150px;
+  margin: 0 auto; }
+
+#nav-title {
+  letter-spacing: 2px; }
 
 /*# sourceMappingURL=style.css.map */

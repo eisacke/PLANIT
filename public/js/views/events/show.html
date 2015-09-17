@@ -1,5 +1,4 @@
 <div class="container-fluid" ng-controller="EventsController as events">
-  <div ng-controller="LocationsController as locations">
   <div ng-controller="InviteesController as invitees">
     <h2>Title: {{events.event.title}}</h2>
     <h3>Description: {{events.event.description}}</h3>
@@ -7,7 +6,7 @@
     <h2>Locations:</h2>
     <ul>
       <li ng-repeat="location in events.event.locations">
-        <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="locations.deleteLocation(location)">X</button>
+        <b>{{location.name}}</b> {{location.time}} | {{location.address}}<button ng-click="events.deleteLocation(location)">X</button>
       </li>
     </ul>
     <h2>Invitees:</h2>
@@ -16,14 +15,14 @@
         <b>{{invitee.name}}</b> {{invitee.email}}<button ng-click="invitees.deleteInvitee(invitee)">X</button>
       </li>
     </ul>
-    <button ng-click="locations.showForm()">Add Location</button>
+    <button ng-click="events.showForm()">Add Location</button>
     <button ng-click="invitees.showForm()">Add Invitee</button>
     <button ng-click="events.sendInvite()">Send Invite</button>
 
-    <form ng-submit="locations.addLocation()" ng-show="locations.form">
+    <form ng-submit="events.addLocation()" ng-show="events.form">
       <h3>Add a location</h3>
       <label for="time">Time:</label>
-      <input type="text" name="time" ng-model="locations.location.location.time">
+      <input type="text" name="time" ng-model="events.location.location.time">
       <label for="time">Location:</label>
       <input type="text" name="location" class="textbox" id="location" value="" />
       <button type="submit">Add Location</button>
@@ -40,6 +39,5 @@
 
     <div id="map-canvas"></div>
     <button ng-click="events.deleteEvent(events.event)">Delete Event</button>
-  </div>
   </div>
 </div>
