@@ -1,3 +1,64 @@
+header {
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #EDEEEE;
+}
+
+header nav {
+  max-width: 960px;
+  margin: 0 auto;
+  height: 60px;
+  line-height: 60px;
+}
+
+header nav ul {
+  height: 60px;
+  line-height: 60px;
+  font-size: 13px;
+}
+
+header nav ul li:first-child {
+  float: left;
+  padding: 0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header nav ul li {
+  display: inline;
+  height: 60px;
+  line-height: 60px;
+  float: right;
+  padding: 0 10px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #map-canvas {
   height: 500px;
   width: 500px;
