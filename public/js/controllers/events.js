@@ -2,8 +2,8 @@ angular
 .module('EventPlan')
 .controller('EventsController', EventsController)
 
-EventsController.$inject = ['Event', 'Location', '$state', '$stateParams','TokenService', '$window']
-function EventsController (Event, Location, $state, $stateParams, TokenService, $window) {
+EventsController.$inject = ['Event', 'Location', 'Invitee', '$state', '$stateParams','TokenService', '$window']
+function EventsController (Event, Location, Invitee, $state, $stateParams, TokenService, $window) {
 
   // EVENT VARS
   var self = this;
@@ -13,8 +13,13 @@ function EventsController (Event, Location, $state, $stateParams, TokenService, 
   self.location = {};
   self.location.event_id = $stateParams.id;
   self.location.location = {};
-  self.form = false;
+  self.locationForm = false;
   self.place;
+  // INVITEE VARS
+  self.invitee = {};
+  self.invitee.event_id = $stateParams.id;
+  self.invitee.invitee = {};
+  self.inviteeForm = false;
 
   // EVENT FUNCTIONS
 
@@ -63,11 +68,34 @@ function EventsController (Event, Location, $state, $stateParams, TokenService, 
     Event.invite({id: event_id});
   }
 
+  // INVITEE FUNCTIONS
+
+  // SHOW NEW INVITEE FORM
+  self.showInviteeForm = function(){
+    self.inviteeForm = self.inviteeForm === false ? true: false;
+  }
+
+  // DELETE INVITEE
+  self.deleteInvitee = function(invitee){
+    Invitee.delete({id: invitee._id});
+    // var index = self.all.indexOf(invitee);
+    // self.all.splice(index, 1);
+  }
+
+  // ADD INVITEE
+  self.addInvitee = function(){
+    self.invitee.event_id = $stateParams.id;
+    Invitee.save(self.invitee, function(invitee){
+      self.invitee.invitee = {}
+      self.form = false;
+    });
+  }
+
   // LOCATION FUNCTIONS
 
   // SHOW NEW LOCATION FORM
-  self.showForm = function(){
-    self.form = self.form === false ? true: false;
+  self.showLocationForm = function(){
+    self.locationForm = self.locationForm === false ? true: false;
   }
 
   // DELETE LOCATION
