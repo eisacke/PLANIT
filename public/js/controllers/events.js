@@ -127,7 +127,8 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     map.setCenter(newlatlong);
     // marker.setPosition(newlatlong);
     // map.setZoom(12);
-
+    self.location.location['lat'] = self.place.geometry.location.lat();
+    self.location.location['lng'] = self.place.geometry.location.lng();
     self.location.location['name'] = self.place.name;
     self.location.location['address'] = self.place.formatted_address;
     self.location.location['website'] = self.place.website;
@@ -164,7 +165,49 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     //   map: map,
     //   title: 'Main map'
     // });
+    for (var i = 0; i < self.event.locations.length; i++) {
+      addPin(self.event.locations[i]);
+    } 
   }
+
+  function addPin(location, index) {
+    console.log(location);
+    // // Setting up marker based on json bar (name, lat, lng) data
+    // var marker = new google.maps.Marker({
+    //   position: {lat: bar.lat, lng: bar.lng},
+    //   map: window.map,
+    //   title: bar.name,
+    //   animation: google.maps.Animation.DROP,
+    //   icon: "http://i.imgur.com/mKPqLrX.png"
+    // });
+    
+    // // Setting up info window based on json bar (name, image, description, facebook) data
+    // // Adding Citymapper link with bar lat and lng
+    // // Adding click listener to open info window when marker is clicked
+    // marker.addListener('click', function(){
+    //   markerClick(marker, bar);
+    // });  
+  }
+
+  function markerClick(marker, bar) {
+    if(infowindow) infowindow.close();
+
+    infowindow = new google.maps.InfoWindow({
+      content: '<div id="map_window">'+
+      '<h2 id="map_title">' + bar.name + '</h2>'+
+      '<div id="map_content">'+
+      '<div class="bar_image" style="background-image: url('+ bar.image +')"></div>' +
+      '<p id="map_address">' + bar.address + '</p>' +
+      '<p id="map_description">' + bar.description + '</p>' +
+      '<a href="https://citymapper.com/directions?endcoord='
+      + bar.lat + ',' + bar.lng + '&endname=' + bar.name +'" target="_blank"><img class="citymapper" src="../images/custom-citymapper.png"></a>' +
+      '</div>'+
+      '</div>'
+    });
+
+    window.map.setCenter(marker.getPosition());
+    infowindow.open(window.map, marker);
+  };
 
   input.addEventListener('click', function(){
     input.value = "";

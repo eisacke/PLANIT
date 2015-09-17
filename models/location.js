@@ -5,7 +5,9 @@ var LocationSchema = new mongoose.Schema({
   address: String,
   website: String,
   phone: String,
-  time: String
+  time: String,
+  lat: Number,
+  lng: Number
 });
 
 var Location = mongoose.model('Location', LocationSchema);
