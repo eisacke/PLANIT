@@ -62,9 +62,10 @@
   color: white;
   font-weight: 900;
   margin-left: 5px;
-  margin-bottom: 7px;
   position: relative;
   top: -2px;
+  width: 19.1px;
+  height: 19.1px;
 }
 
 .form-button {
@@ -95,13 +96,12 @@
 
 .buttons {
   background-color: #f6f6f6;
-  padding-bottom: 10px;
+}
+
+#show-page-form {
+  margin-top: 20px;
 }
 
 #show-page-form-button {
   margin: 0px;
-}
-
-.show-page-form {
-  padding-top: 20px;
 }

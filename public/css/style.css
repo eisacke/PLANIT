@@ -190,9 +190,10 @@ img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
   color: white;
   font-weight: 900;
   margin-left: 5px;
-  margin-bottom: 7px;
   position: relative;
-  top: -2px; }
+  top: -2px;
+  width: 19.1px;
+  height: 19.1px; }
 
 .form-button {
   background: #333;
@@ -218,13 +219,9 @@ img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
   background-image: url("../images/placeholder2.jpg"); }
 
 .buttons {
-  background-color: #f6f6f6;
-  padding-bottom: 10px; }
+  background-color: #f6f6f6; }
 
 #show-page-form-button {
   margin: 0px; }
-
-.show-page-form {
-  padding-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

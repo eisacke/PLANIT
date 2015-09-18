@@ -190,7 +190,7 @@ function EventsController (Event, Location, Invitee, $state, $stateParams, Token
     infowindow = new google.maps.InfoWindow({
       content: '<div class="infoWindow">'+
       '<h2>' + location.name + '</h2>'+
-      '<h4>' + location.time + '</h4>'+
+      '<p>' + location.address + '</p>'+
       '</div>'
     });
 

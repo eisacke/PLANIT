@@ -41,9 +41,9 @@ sendInvite = function(event){
       }
 
       transport.sendMail({
-        from: 'Event Plan <eventplanapp@gmail.com>',
+        from: 'PLANIT <eventplanapp@gmail.com>',
         to: invitee,
-        subject: inviteeName + ", you're invited!!",
+        subject: inviteeName + ", you're invited!",
         html: results.html,
         text: results.text
       }, function (err, responseStatus) {

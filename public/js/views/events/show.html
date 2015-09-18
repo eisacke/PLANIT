@@ -11,7 +11,7 @@
         <h2>Locations:</h2>
         <ul>
           <li ng-repeat="location in events.event.locations">
-            <p>{{location.time}} &bull; {{location.name}} &bull; {{location.address}}<button class="mini-delete" ng-click="events.deleteLocation(location)">X</button></p>
+            <p>{{location.time}} &bull; {{location.name}}<button class="mini-delete" ng-click="events.deleteLocation(location)">X</button></p>
           </li>
         </ul>
       </div>
@@ -32,8 +32,8 @@
     <button class="form-button" ng-click="events.deleteEvent(events.event)">Delete Event</button>
   </div>
 
-  <md-content class="show-page-form">
-    <form ng-submit="events.addLocation()" ng-show="events.locationForm">
+  <md-content>
+    <form ng-submit="events.addLocation()" ng-show="events.locationForm" style="margin-top: 20px;">
       <md-input-container>
         <input type="text" name="location" class="textbox" id="location" value="" />
       </md-input-container>
@@ -41,17 +41,23 @@
         <label>Time</label>
         <input type="text" name="time" ng-model="events.location.location.time">
       </md-input-container>
-      <input id="show-page-form-button" ng-click="events.showLocationForm()" type="submit" value="Submit">
+      <input id="show-page-form-button" ng-click="events.showLocationForm()" type="submit" value="Add">
     </form>
   </md-content>
 
-  <form ng-submit="events.addInvitee()" ng-show="events.inviteeForm">
-    <label for="name">Name:</label>
-    <input type="text" name="name" ng-model="events.invitee.invitee.name">
-    <label for="email">Email:</label>
-    <input type="text" name="email" ng-model="events.invitee.invitee.email">
-    <button class="show-page-form-button" ng-click="events.showInviteeForm()" type="submit">Add Invitee</button>
-  </form>
+  <md-content>
+    <form ng-submit="events.addInvitee()" ng-show="events.inviteeForm" style="margin-top: 20px;">
+      <md-input-container>
+        <label>Name</label>
+        <input type="text" name="time" ng-model="events.invitee.invitee.name">
+      </md-input-container>
+      <md-input-container>
+        <label>Email</label>
+        <input type="text" name="time" ng-model="events.invitee.invitee.email">
+      </md-input-container>
+      <input id="show-page-form-button" ng-click="events.showInviteeForm()" type="submit" value="Add">
+    </form>
+  </md-content>
 
   <div id="map-canvas"></div>
 </div>
