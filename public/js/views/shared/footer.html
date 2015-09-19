@@ -1,3 +1,7 @@
-<footer ng-show="users.isLoggedIn()" class="footer">
-  <h5><span><a href="#events">MY EVENTS</a></span> &bull; <span><a href="#events/new">NEW EVENT</a></span> &bull; <span ng-click="users.logout()"><a href="#home">LOGOUT</a></span></h5>
+<footer class="footer">
+  <h5><span ng-hide="users.isLoggedIn()"><a href="#">EVENTS MADE EASY</a></span>
+  <span ng-show="users.isLoggedIn()">
+  <span><a href="#events">MY EVENTS</a></span> &bull; <span><a href="#events/new">NEW EVENT</a></span> &bull; <span ng-click="users.logout()"><a href="#home">LOGOUT</a></span>
+</span>
+  </h5>
 </footer>

@@ -2,7 +2,18 @@ angular
   .module('EventPlan', ['ngResource', 'ui.router', 'angular-jwt', 'ngMaterial', 'ngAnimate', 'ngAria'])
   .constant('API', 'http://localhost:3000/api')
   .config(MainRouter)
-  .config(AuthInterceptor);
+  .config(AuthInterceptor)
+  .config(function($mdThemingProvider) {
+    // Extend the red theme with a few different colors
+    var neonRedMap = $mdThemingProvider.extendPalette('red', {
+      '500': 'ff5964'
+    });
+    // Register the new color palette map with the name <code>neonRed</code>
+    $mdThemingProvider.definePalette('neonRed', neonRedMap);
+    // Use that theme for the primary intentions
+    $mdThemingProvider.theme('default')
+      .primaryPalette('neonRed')
+  });
 
   function AuthInterceptor($httpProvider){
     $httpProvider.interceptors.push('authInterceptor');

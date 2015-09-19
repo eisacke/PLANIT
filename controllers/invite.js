@@ -12,7 +12,7 @@ var transport = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: 'eventplanapp@gmail.com',
-    pass: 'generalassembly'
+    pass: process.env.PLANIT_GMAIL_PASSWORD
   }
 });
 
